@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-sv
+spec:
+  selector:
+    run: test
+#  clusterIP: 10.244.0.54
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 31707
+      name: nginx
